@@ -14,5 +14,6 @@ export interface Ievent {
     regDate?: Date;
     modDate?: Date;
     creator?: string;
-}
 
+    productImages?: { [productNo: string]: string[] }; // productNo를 키로 하는 이미지 배열
+}

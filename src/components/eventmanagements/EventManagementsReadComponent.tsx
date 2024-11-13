@@ -126,16 +126,19 @@ function EventManagementsReadComponent() {
                 <div>
                     <span>상품 리스트</span>
                     <div>
-                        <label className="text-sm font-medium text-gray-700">상품명1</label>
-                        <img src="" alt=""/>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700">상품명2</label>
-                        <img src="" alt=""/>
-                    </div>
-                    <div>
-                        <label className="text-sm font-medium text-gray-700">상품명3</label>
-                        <img src="" alt=""/>
+                        {event.productImages && Object.entries(event.productImages).map(([productNo, images]) => (
+                            <div key={productNo}>
+                                <h3 className="text-sm font-medium text-gray-700">상품 {productNo}</h3>
+                                {images.map((image, index) => (
+                                    <img
+                                        key={index}
+                                        src={`path/to/images/${image}`}  // 실제 이미지 경로로 바꿔야 함
+                                        alt={`product-${productNo}-${index}`}
+                                        className="w-32 h-32 object-cover"
+                                    />
+                                ))}
+                            </div>
+                        ))}
                     </div>
                 </div>
 
