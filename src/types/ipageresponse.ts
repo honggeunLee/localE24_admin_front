@@ -1,4 +1,3 @@
-
 export interface IPageresponse<E> {
     dtoList: E[];
     pageNumList: number[];
