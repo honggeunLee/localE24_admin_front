@@ -6,6 +6,7 @@ export interface Istore {
     storeLatitude : string;
     storeLongitude : string;
     isRentAvailable : boolean;
+    storeApprovalStatus? : string;
 
     delFlag?: boolean;
     regDate?: Date;
