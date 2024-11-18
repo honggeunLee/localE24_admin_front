@@ -16,3 +16,11 @@ export const getStoreDetail = async (storeNo:number): Promise<Istore> => {
     const result = await axios.get(`${host}/read/${storeNo}`);
     return result.data;
 }
+
+export const searchStoreList = async (page?:number, size?:number, storeName ?: string, isRentAvailable ?: boolean) : Promise<IPageresponse<Istore>> => {
+
+    const params = {page: String(page), size: String(size), storeName, isRentAvailable}
+
+    const res = await axios.get(`${host}/search`, {params})
+    return res.data;
+}

@@ -29,7 +29,7 @@ const applymanagementsRouter ={
             element: <Suspense fallback={Loading}><ApplyManagementsEventListPage/></Suspense>
         },
         {
-            path: "event/read",
+            path: "event/read/:eventNo",
             element: <Suspense fallback={Loading}><ApplyManagementsEventReadPage/></Suspense>
         },
         {

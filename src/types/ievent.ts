@@ -9,6 +9,7 @@ export interface Ievent {
     eventEnd?: Date;
     eventStatus?: string;
     spaceRentStatus?: boolean;
+    approvalStatus?: string;
 
     delFlag?: boolean;
     regDate?: Date;

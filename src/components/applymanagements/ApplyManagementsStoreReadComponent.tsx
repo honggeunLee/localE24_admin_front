@@ -38,7 +38,7 @@ function ApplyManagementsStoreReadComponent() {
         })
     };
 
-    const handleProductStatusChange = async (status: string) => {
+    const handleStoreStatusChange = async (status: string) => {
         if (!storeNo) return;
         setLoading(true);
         try {
@@ -136,13 +136,13 @@ function ApplyManagementsStoreReadComponent() {
 
                 <div className="flex gap-4 justify-center">
                     <button
-                        onClick={() => handleProductStatusChange("ACCEPTED")}
+                        onClick={() => handleStoreStatusChange("ACCEPTED")}
                         className="flex-1 max-w-xs px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
                     >
                         승인
                     </button>
                     <button
-                        onClick={() => handleProductStatusChange("REJECTED")}
+                        onClick={() => handleStoreStatusChange("REJECTED")}
                         className="flex-1 max-w-xs px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                     >
                         거절

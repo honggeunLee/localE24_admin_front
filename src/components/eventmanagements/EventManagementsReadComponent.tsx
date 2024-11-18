@@ -10,7 +10,8 @@ const initialState: Ievent = {
     eventName: "",
     makerName: "",
     storeName: "",
-    spaceRentStatus: false
+    spaceRentStatus: false,
+    productImages: { }
 }
 
 function EventManagementsReadComponent() {
@@ -129,14 +130,27 @@ function EventManagementsReadComponent() {
                         {event.productImages && Object.entries(event.productImages).map(([productNo, images]) => (
                             <div key={productNo}>
                                 <h3 className="text-sm font-medium text-gray-700">상품 {productNo}</h3>
-                                {images.map((image, index) => (
-                                    <img
-                                        key={index}
-                                        src={`path/to/images/${image}`}  // 실제 이미지 경로로 바꿔야 함
-                                        alt={`product-${productNo}-${index}`}
-                                        className="w-32 h-32 object-cover"
-                                    />
-                                ))}
+                                {images.map((image, index) => {
+                                    // 원본 파일 경로 생성
+                                    const originalFilePath = `http://localhost/${image}`;
+                                    // 썸네일 경로 생성 (썸네일 이미지가 별도 경로로 저장된 경우 사용)
+                                    const thumbnailFilePath = `http://localhost/s_${image}`;
+                                    // 이미지 이름 추출
+                                    const actualFileName = image.split('_').pop() ?? '';
+
+                                    return (
+                                        <p key={index}>
+                                            <a href={originalFilePath} target="_blank" rel="noopener noreferrer">
+                                                <img
+                                                    src={thumbnailFilePath} // 썸네일 이미지 경로
+                                                    alt={actualFileName}
+                                                    style={{maxWidth: "200px", maxHeight: "200px", cursor: "pointer"}}
+                                                    className="w-32 h-32 object-cover"
+                                                />
+                                            </a>
+                                        </p>
+                                    );
+                                })}
                             </div>
                         ))}
                     </div>

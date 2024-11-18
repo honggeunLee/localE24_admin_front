@@ -16,3 +16,16 @@ export const getEventDetail = async (eventNo:number): Promise<Ievent> => {
     const result = await axios.get(`${host}/read/${eventNo}`);
     return result.data;
 }
+
+export const searchEventList = async (page?:number, size?:number,
+                                      eventName?:string,
+                                      eventStart?: string,
+                                      eventEnd?: string,
+                                      eventStatus?: string,
+                                      spaceRentStatus?: boolean) : Promise<IPageresponse<Ievent>> => {
+
+    const params = {page: String(page), size: String(size), eventName, eventStart, eventEnd, eventStatus, spaceRentStatus}
+
+    const res = await axios.get(`${host}/search`, {params})
+    return res.data;
+}

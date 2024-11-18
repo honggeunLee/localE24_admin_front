@@ -51,7 +51,7 @@ function ApplyManagementsStoreListComponent() {
         Array.isArray(pageResponse.dtoList) && pageResponse.dtoList.length > 0 ? (
             pageResponse.dtoList.map((store: Istore) => {
                 const { storeNo, storeName, managerName, storeContact, isRentAvailable, storeApprovalStatus } = store;
-                // productStatus에 따른 배경 색상 설정
+                // storeApprovalStatus에 따른 배경 색상 설정
                 const statusBgColor =
                     storeApprovalStatus === "PENDING" ? "bg-purple-200" :
                         storeApprovalStatus === "ACCEPTED" ? "bg-green-200" :
